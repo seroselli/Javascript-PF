@@ -1,0 +1,276 @@
+.text-responsive-1 { 
+    font-size: calc(0.5em + 0.5vw) 
+}
+
+.text-responsive-2 { 
+    font-size: calc(0.9em + 0.9vw);
+    word-wrap: normal; 
+}
+
+#titulo{
+    cursor: pointer;
+    color: white;
+}
+#linkedin{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+#svgFecha{
+  display: none;
+}
+
+#linkedin:hover{
+    cursor: pointer;
+    transition:200ms;
+    transform: scale(1.1);
+    text-shadow: black 4px 4px 10px;
+}
+
+#titulo:hover{
+    cursor: pointer;
+    transition:200ms;
+    transform: scale(1.1);
+    text-shadow: black 4px 4px 10px;
+}
+
+
+body{
+    height: 100vh;
+}
+.output{
+    position: fixed;
+    top: -20px;
+    left: 0px;
+    height: 102vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.527);
+    z-index: 3;
+    display: none;
+}
+#cuadro{
+  max-width: 60%; 
+  border: solid rgba(255, 255, 255, 0.726) 1px; 
+  border-radius: 20px;
+}
+
+footer{
+    background-color: antiquewhite;
+    color: black;
+    width: 100%;
+    height: 25px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+.cartel{
+    margin-top: 100px;
+    color: white;
+    font-size: xx-large;
+    font-weight:  bolder;
+    background-color: rgb(14, 14, 14);
+    width: 300px;
+    height: auto;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+
+.modulo{
+  display: none;
+  fill: rgb(12, 173, 165);
+
+}
+.letra{
+  display: none;
+  fill: black;
+  pointer-events: none;
+}
+
+.modulo:hover{
+  fill: rgb(19, 77, 116);
+  cursor: pointer;
+}
+.letra:hover{
+  fill: rgb(19, 77, 116);
+  cursor: pointer;
+}
+
+.circle:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.circle{
+  background-color: rgb(19, 77, 116);
+  display: none;
+}
+
+#cobro{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 10px;
+    color: white; 
+    position: absolute; 
+    background-color: rgb(39, 39, 39) ;
+    border: solid 1.5px currentColor;
+    z-index: 5;
+}
+#cobro:hover{
+    color: black; 
+    background-color: white ;
+    border: solid 1.5px currentColor;
+}
+
+.medioCirculo{
+  height: 55px;
+  width: 110px;
+  margin-top: -55px;
+  border-top-left-radius: 4000px;
+  border-top-right-radius: 4000px;
+  border: 1.5px solid white;
+  font-size: (1em + 1vw); 
+  font-weight: bolder;
+  z-index: 1;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  border-bottom: rgb(39, 39, 39) solid 1px;
+}
+.medioCirculo2{
+  height: 55px;
+  width: 110px;
+  margin-top: 55px;
+  border-bottom-right-radius: 4000px;
+  border-bottom-left-radius: 4000px;
+  z-index: 1;
+  border: 1.5px solid white;
+  font-size: (1em + 1vw);
+  font-weight: bolder;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  border-top: rgb(39, 39, 39) solid 1px;
+}
+
+svg{
+  z-index: 0;
+}
+
+.btnFecha{
+  background-color: grey;
+  border: transparent;
+  color: white; 
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bolder;
+  width: 100%;
+  pointer-events: none;
+}
+.btnFecha2{
+  background-color: rgba(128, 128, 128, 0.39);
+  border: transparent;
+  color: white; 
+  width: 100%;
+  }
+
+  #mesUp{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #mesDown{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  #añoUp{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #añoDown{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+.btnRelation{
+    background-color: transparent;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: solid 1px currentColor;
+    border-radius: 1000px;
+}
+
+.btnRelation-active{
+    background-color: white;
+    color: rgb(19, 77, 116);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: solid 3px currentColor;
+    border-radius: 1000px;
+}
+
+.btnRelation:hover{
+    color: rgb(19, 77, 116);
+    border: solid 3px currentColor;
+}
+.btnRelation-active:hover{
+    color: black;
+    border: solid 3px currentColor;
+}
+
+.logo{
+  position: fixed; 
+  left: 10px;
+  bottom: 50px;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    #cuadro{
+        max-width: 80%; 
+        border: solid rgba(255, 255, 255, 0.726) 1px; 
+        border-radius: 20px;
+      }
+
+  }
+
+  @media only screen and (max-width: 770px) {
+
+    #cuadro{
+        max-width: 95%; 
+        border: solid rgba(255, 255, 255, 0.726) 1px; 
+        border-radius: 20px;
+      }
+
+  }
+
+@media only screen and (max-width: 400px) {
+    .text-responsive-2 { 
+        font-size: calc(0.8em + 0.8vw);
+    }
+    #cuadro{
+        max-width: 100%; 
+        border: solid rgba(255, 255, 255, 0.726) 1px; 
+        border-radius: 20px;
+      }
+      
+
+
+  }
+  
