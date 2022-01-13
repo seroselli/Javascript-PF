@@ -238,6 +238,7 @@ svg{
   position: fixed; 
   left: 10px;
   bottom: 50px;
+  z-index: 110000;
 }
 
 @media only screen and (max-width: 1200px) {
