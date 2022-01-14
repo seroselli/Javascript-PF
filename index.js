@@ -41,40 +41,56 @@ $(document).ready(()=>{
         validarDato("formulario",);
     })
     $("#btnPageCalculadora").click(()=>{ //DESDE HISTORIAL A CALCULADORA
-        $("#historial").slideUp("fast");
-        $("#calculadora").delay(300).slideDown("fast");                 
+        $("#historial").css("left","2000px");
+        $("#calculadora").show();
+        setTimeout(() => {
+            $("#calculadora").css("left","0px");
+            $("#historial").hide();
+        }, 100);              
     })
     $("#btnHistorial").click(()=>{//DESDE CALCULADORA A HISTORIAL
         limpiarTodo();
-        $("#mostrarListado").empty();//borra si quedo registro de historial viejo
         generarListado();
-        $("#calculadora").delay(50).slideUp("fast");
-        $("#historial").delay(300).slideDown("fast");
+        $("#calculadora").css("left","-2000px");
+        $("#historial").show();
+        $("#historial").css("left","0px");
+        setTimeout(() => {
+            $("#calculadora").hide();
+        }, 300);
     })
     $("#btnCalculadora").click(()=>{//VOLVER A CALCULADORA DESDE RESULTADO
-        $("#resultado").slideUp("fast");
-        $("#calculadora").delay(300).slideToggle("fast");
         limpiarTodo();
+        $("#resultado").css("left","-2000px");
+        $("#calculadora").show();
+        setTimeout(() => {
+            $("#resultado").hide();
+            $("#calculadora").css("left","0px");
+        }, 100);        
+    
     })
     $("#limpiarHistorial").click(()=>{//BOTON LIMPIAR HISTORIAL
         localStorage.clear();
-        $("#historial").slideUp("fast");
-        $("#calculadora").delay(300).slideDown("fast");
+        $("#historial").css("left","2000px");
+        $("#calculadora").show();
+        $("#calculadora").css("left","0px");
+        setTimeout(() => {
+            $("#historial").hide();
+        }, 300);     
     })
     $("#cartelito").click(()=>{//CERRAR CARTELITO
         cerrarAlerta();
     });
     $("#single").click(()=>{
-        $("#couple").removeClass("btnRelation-active");
-        $("#couple").addClass("btnRelation");
-        $("#single").removeClass("btnRelation");
-        $("#single").addClass("btnRelation-active");  
+        $("#couple").removeClass("coupleOn");
+        $("#couple").addClass("coupleOff");
+        $("#single").removeClass("singleOff");
+        $("#single").addClass("singleOn");  
     });
     $("#couple").click(()=>{
-        $("#single").removeClass("btnRelation-active");
-        $("#single").addClass("btnRelation");
-        $("#couple").removeClass("btnRelation");
-        $("#couple").addClass("btnRelation-active");  
+        $("#couple").removeClass("coupleOff");
+        $("#couple").addClass("coupleOn");
+        $("#single").removeClass("singleOn");
+        $("#single").addClass("singleOff");  
     });
     $("#hijos").change(()=>{
         $("#cantHijos").val($("#hijos").val())
@@ -177,8 +193,12 @@ function mostrarSueldo(sueldoNeto) {
     $("#sueldoNeto").empty().append(("Sueldo Neto: $" + sueldoNeto.verSueldoNeto()).toString());//imprime valores en pagina resultado
     $("#retenciones").empty().append(("Aportes: $" + sueldoNeto.verAportes()).toString());//imprime valores en pagina resultado
     $("#aportes").empty().append(("Retenciones: $" + sueldoNeto.verRetencion()).toString());//imprime valores en pagina resultado
-    $("#calculadora").slideUp("slow");
-    $("#resultado").delay(600).slideDown("fast");
+    $("#calculadora").css("left","2000px");
+    $("#resultado").show();
+    setTimeout(() => {
+        $("#calculadora").hide();
+        $("#resultado").css("left","0px");
+    }, 200);        
 
 }
 
@@ -279,7 +299,18 @@ function alerta(texto){
 }
 function cerrarAlerta(){
     $("#cartelito").fadeOut("fast");
-    $("#resultado").slideUp("fast");
-    $("#historial").slideUp("fast");
-    $("#calculadora").delay(300).slideDown("fast");    
+}
+
+
+function volverPagina(paginaActual,paginaAnterior){
+
+}
+
+function pasarPagina(paginaActual,paginaAnterior){
+    paginaActual = "#" + paginaActual;
+    paginaAnterior = "#" + paginaAnterior;
+
+
+    $(paginaActual).css("left","-3000px").delay(1000).hide();
+
 }

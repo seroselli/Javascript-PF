@@ -1,11 +1,7 @@
 let httpError = [
     "Hubo un problema al comunicarse con el servidor",
     "La URL indicada tiene un error o esta mal escrita",
-    "El servidor tiene un problema",
-    "El formulario tiene un error",
-    "JSON Parse devolvió un error",
-    "Tiempo de espera agotado",
-    "Petición abortada"
+    "El servidor tiene un problema"
 ];
 
 export async function httpGet(url,form){
