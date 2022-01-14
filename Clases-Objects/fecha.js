@@ -1,7 +1,7 @@
 
 let activeMenu =0;
 let content1,content2;
-const meses = ["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"]
+export const meses = ["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"]
 let mesSeleccionado = "MES",añoSeleccionado = "AÑO";
 
 

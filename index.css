@@ -1,30 +1,55 @@
 .page{
   transition: 600ms;
   position: absolute; 
-  width: 100%; 
-  height: 100%; 
   top: 50px;
 }
 
 #calculadora{
   left: 0px;
+  width: 100%; 
+  height: 100%; 
 }
 #historial{
   left: 2000px;
-}
-#resultado{
-  left: -2000px;
+  width: 100%; 
+  height: 100%; 
 }
 
-#titulo{
-  color: rgb(0, 0, 0);
-  font-weight: bolder;
-  cursor: pointer;
-}
 #linkedin{
   color: white;
   cursor: pointer;
 }
+
+
+#titulo:hover{
+  transition: 200ms;
+  transform: scale(1.2);
+}
+
+#linkedin:hover{
+  transition: 200ms;
+  transform: scale(1.2);
+}
+
+#btnHistorial:hover{
+  transition: 200ms;
+  transform: scale(1.1);
+  color: white;
+  background-color: rgba(2, 36, 34, 0.603);
+}
+#resultado{
+  left: -2000px;
+  width: 100%; 
+  height: 100%; 
+}
+
+.cuadro{
+  border: solid rgba(24, 24, 24, 0.726) 1px; 
+  border-radius: 20px;
+  box-shadow: black 1px 1px 50px;
+}
+
+
 
 .btn-iigg{
   background-color: rgba(3, 68, 65, 0.603);
@@ -36,6 +61,8 @@
   background-color: white;
   color: rgba(3, 68, 65, 0.603);
   border: solid 1px rgba(3, 68, 65, 0.603);
+  transition: 200ms;
+  transform: scale(1.1);
 }
 .text-responsive-1 { 
     font-size: calc(0.5em + 0.5vw) 
@@ -46,11 +73,9 @@
     word-wrap: normal; 
 }
 
-
 #svgFecha{
   display: none;
 }
-
 
 
 
@@ -70,8 +95,9 @@ body{
 }
 #cuadro{
   max-width: 60%; 
-  border: solid rgba(255, 255, 255, 0.726) 1px; 
+  border: solid rgba(24, 24, 24, 0.726) 1px; 
   border-radius: 20px;
+  box-shadow: black 1px 1px 50px;
 }
 
 footer{

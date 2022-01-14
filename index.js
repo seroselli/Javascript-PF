@@ -5,7 +5,7 @@ import validadors from './Clases-Objects/validador.js'
 import sueldoHistorial from './Clases-Objects/sueldoHistorial.js'
 import sueldos from './Clases-Objects/sueldo.js'
 import { httpGet } from './ajax.js'
-import {reiniciar, ocultarFechas}from './Clases-Objects/fecha.js'
+import {reiniciar, ocultarFechas, meses} from './Clases-Objects/fecha.js'
 
 /*FIN DECLARACION DE OBJETOS Y CLASES*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
@@ -13,6 +13,7 @@ import {reiniciar, ocultarFechas}from './Clases-Objects/fecha.js'
 
 let validator = new validadors();
 let conyuge = false;
+let mesSeleccionado,añoSeleccionado;
 limpiarTodo(); //LIMPIA FORMULARIO Y REINICIA VALIDACIONES
 
 
@@ -72,8 +73,8 @@ $(document).ready(()=>{
         localStorage.clear();
         $("#historial").css("left","2000px");
         $("#calculadora").show();
-        $("#calculadora").css("left","0px");
         setTimeout(() => {
+            $("#calculadora").css("left","0px");
             $("#historial").hide();
         }, 300);     
     })
@@ -96,6 +97,7 @@ $(document).ready(()=>{
         $("#cantHijos").val($("#hijos").val())
     })
     $("#cobro").click(()=>{
+
         if($(".circle").css("display") == "flex"){
             $(".circle").css("display", "none");
             ocultarFechas();
@@ -131,11 +133,11 @@ function validarDato(tipo,id) { //funcion validacion
             for (let i = 0; i < 4; i++) { //revisa si hay errores en los inputs de texto (almacenados en validator)
                 if(validator.error[i]){
                     document.getElementById(validator.verId(i)).focus(); //si hay error, te lleva al mismo para que lo corrijas
-                    alerta("Debe completar los campos correctamentes");
+                    alerta("Debe completar los campos correctamente");
                     break;
                 };
                 if(!validator.error[i] && i==3){ //si no encuentra errores en la validacion 
-                    conyuge = $("#couple").hasClass("btnRelation-active");
+                    conyuge = $("#couple").hasClass("coupleOn");
                     calcular();
                 };
             }
@@ -155,10 +157,19 @@ function limpiarTodo() {
 }
 
 async function calcular() {
-    let sueldoBruto = parseFloat(document.getElementById('sueldoBruto').value);
-    let sueldoNuevo = new sueldos(sueldoBruto,calcAportes(sueldoBruto),await calcDeducciones(sueldoBruto));
-    mostrarSueldo(sueldoNuevo); //imprime valores en pagina resultado y lo muestra
-    guardarSueldo(sueldoNuevo); //guarda los nuevos valores en el local storage
+    if(parseFloat($("#sueldoBruto").val()) >=20000){
+        validarFecha();
+        console.log(parseFloat($("#sueldoBruto").val()))
+        let sueldoBruto = parseFloat(document.getElementById('sueldoBruto').value);
+        let sueldoNuevo = new sueldos(sueldoBruto,calcAportes(sueldoBruto),await calcDeducciones(sueldoBruto));
+        mostrarSueldo(sueldoNuevo); //imprime valores en pagina resultado y lo muestra
+        guardarSueldo(sueldoNuevo); //guarda los nuevos valores en el local storage
+    }
+    else{
+        alerta("El sueldo bruto debe ser mayor a $20.000");
+        $("#sueldoBruto").val(20000);
+        $("#sueldoBruto").focus();
+    }
 }
 
 
@@ -285,10 +296,29 @@ function generarListado() {
     }
 }
 
+function validarFecha(){
+    if($("#btnMes").text()=="MES"){
+        let dato = Date.now();
+        dato = new Date(dato)
+        mesSeleccionado =  meses[dato.getMonth()];
+    }
+    else{
+        mesSeleccionado = $("#btnMes").text();
+    }
+    if($("#btnAño").text()=="AÑO"){
+        let dato = Date.now();
+        dato = new Date(dato)
+        añoSeleccionado =  dato.getFullYear();
+    }
+    else{
+        añoSeleccionado = $("#btnAño").text();
+    }
+
+}
 
 function verMes(){
 
-  return  $("#btnMes").text()+ "/" + $("#btnAño").text();
+  return  mesSeleccionado + "/" + añoSeleccionado;
     
 }
 
@@ -298,19 +328,13 @@ function alerta(texto){
     $("#cartelito").fadeIn("fast");
 }
 function cerrarAlerta(){
+
     $("#cartelito").fadeOut("fast");
-}
-
-
-function volverPagina(paginaActual,paginaAnterior){
-
-}
-
-function pasarPagina(paginaActual,paginaAnterior){
-    paginaActual = "#" + paginaActual;
-    paginaAnterior = "#" + paginaAnterior;
-
-
-    $(paginaActual).css("left","-3000px").delay(1000).hide();
-
+    $("#resultado").hide();
+    
+    $("#calculadora").show();
+    setTimeout(() => {
+        $("#historial").hide();
+        $("#calculadora").css("left","0px");
+    }, 100);      
 }
