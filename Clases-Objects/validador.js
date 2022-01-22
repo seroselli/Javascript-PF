@@ -32,8 +32,6 @@ export default class validadors {
                 contador++;
                 }
         }
-        console.log("Contador: " + contador + " Largo palabra: "+ palabra.length);
-        console.log("Palabra: "+palabra)
         if(contador===palabra.length){
             this.desmarcarError(id);
             return false;

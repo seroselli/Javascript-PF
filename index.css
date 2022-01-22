@@ -141,7 +141,9 @@
   transition: 200ms;
   transform: scale(1.1);
 }
-
+#single img svg{
+  fill: red;
+}
 .btnBorrarHistorial{
   background-color: rgba(69, 162, 233, 0.308);
   color: black;
@@ -327,33 +329,33 @@ svg{
 }
 
 .coupleOff{
-  background-image: linear-gradient(to right,black,rgb(39, 39, 39));
+  background-image: linear-gradient(to right,rgb(202, 202, 202),rgb(39, 39, 39));
   color: rgb(7, 80, 76);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-top: solid white 1px;
-  border-right: solid white 1px;
-  border-bottom: solid white 1px;
+  border-top: solid black 1px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 .coupleOn{
   background-color: #09F;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-top: solid black 1px;
-  border-right: solid black 1px;
-  border-bottom: solid black 1px;
+  border-top: solid white 1px;
+  border-right: solid white 1px;
+  border-bottom: solid white 1px;
   color: white;
 }
 
 .singleOff{
-  background-image: linear-gradient(to left,rgb(39, 39, 39),rgb(39, 39, 39),black);
+  background-image: linear-gradient(to left,rgb(202, 202, 202),rgb(39, 39, 39));
   color: rgb(7, 80, 76);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  border-top: solid white 1px;
-  border-left: solid white 1px;
-  border-bottom: solid white 1px;
+  border-top: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 .singleOn{
@@ -361,9 +363,9 @@ svg{
   color: white;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  border-top: solid black 1px;
-  border-left: solid black 1px;
-  border-bottom: solid black 1px;
+  border-top: solid white 1px;
+  border-left: solid white 1px;
+  border-bottom: solid white 1px;
 }
 
 .btnRelation:hover{

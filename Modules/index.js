@@ -2,33 +2,39 @@
 /*------------------------------------------------------------------IMPORTAR OBJETOS Y CLASES------------------------------------------------------------------*/
 
 //import {limites} from './Clases-Objects/limites.js' //ACTUALMENTE SE TOMAN A TRAVES DE UN HTTP GET EN FUNCION calcDeducciones()
-import validadors from './Clases-Objects/validador.js'
-import sueldoHistorial from './Clases-Objects/sueldoHistorial.js'
-import sueldos from './Clases-Objects/sueldo.js'
+import validadors from '../Clases-Objects/validador.js'
+import sueldos from '../Clases-Objects/sueldo.js'
 import { httpGet } from './ajax.js'
-import {reiniciar, ocultarFechas, meses} from './Clases-Objects/fecha.js'
+import {reiniciar, ocultarFechas, meses} from '../Clases-Objects/fecha.js'
 
 
-/*------------------------------------------------------------------DECLARACION DE VARIABLES Y MAIN------------------------------------------------------------------*/
-let ua = navigator.oscpu.toLowerCase();
-let mobiles = ["mobile","android","iphone","ipad","phone","nokia"]
-for(const tipo of mobiles){
-    if(ua.includes(tipo)){
-        document.getElementById('linkedin').setAttribute("href","https://www.linkedin.com/in/seroselli/?app=fbl");
-        break;
+/*------------------------------------------------------------------DECLARACION DE VARIABLES E INICIALIZACION------------------------------------------------------------------*/
+var validator = new validadors();
+var conyuge = false;
+var mesSeleccionado,añoSeleccionado;
+
+initialize();
+
+function initialize(){
+    let ua = navigator.oscpu.toLowerCase();
+    let mobiles = ["mobile","android","iphone","ipad","phone","nokia"]
+    for(const tipo of mobiles){
+        if(ua.includes(tipo)){
+            document.getElementById('linkedin').setAttribute("href","https://www.linkedin.com/in/seroselli/?app=fbl");//prueba de apertura de link en navegador movil
+            break;//NO FUNCIONA
+        }
     }
+
+    limpiarTodo(); //LIMPIA FORMULARIO Y REINICIA VALIDACIONES
+    checkTema();//CHEQUEA EL TEMA DARK O LIGHT
 }
 
 
 
-let validator = new validadors();
-let conyuge = false;
-let mesSeleccionado,añoSeleccionado;
-limpiarTodo(); //LIMPIA FORMULARIO Y REINICIA VALIDACIONES
-checkTema();//CHEQUEA EL TEMA DARK O LIGHT
-
+/*------------------------------------------------------------------EVENTOS USUARIO------------------------------------------------------------------*/
 
 addEventListener("keyup",data => { //recibir evento de tecla enter y realizar diferentes acciones
+    
     if(data.key == "Enter"){
         if( $("#calculadora").is(":visible")){
             validarDato("formulario",);//muestra el resultado o alert si da error la validacion
@@ -74,16 +80,12 @@ $(document).ready(()=>{
         cerrarAlerta();
     });
     $("#single").click(()=>{//SOLTERO
-        $("#couple").removeClass("coupleOn");
-        $("#couple").addClass("coupleOff");
-        $("#single").removeClass("singleOff");
-        $("#single").addClass("singleOn");  
+        $("#couple").removeClass("coupleOn").addClass("coupleOff");
+        $("#single").removeClass("singleOff").addClass("singleOn");
     });
     $("#couple").click(()=>{//EN PAREJA
-        $("#couple").removeClass("coupleOff");
-        $("#couple").addClass("coupleOn");
-        $("#single").removeClass("singleOn");
-        $("#single").addClass("singleOff");  
+        $("#couple").removeClass("coupleOff").addClass("coupleOn");
+        $("#single").removeClass("singleOn").addClass("singleOff");
     });
 
     $("#cobro").click(()=>{//abro circulo de fechas
@@ -107,7 +109,7 @@ $(document).ready(()=>{
         }
 })
 
-    $("#s-btnMenu").click(()=>{
+    $("#s-btnMenu").click(()=>{//switchar menu de contacto
         toggleHeader();
     })
 
@@ -195,7 +197,7 @@ async function calcDeducciones(sueldoBruto, hijos, credito,alquiler,domestica){ 
     }   
 }
 
-async function calcRetenciones(sueldoBruto, deduccion){
+async function calcRetenciones(sueldoBruto, deduccion){//CALCULA LAS RETENCIONES DEL IIGG
     let limites = await httpGet("https://4754e748b0179b305c08fd4332bc4b1d.m.pipedream.net"); //ESPERA RESPUESTA DEL SERVIDOR ANTES DE AVANZAR
     let excedente =  deduccion!=false ? sueldoBruto - deduccion - limites.minimoImponible : sueldoBruto - limites.minimoImponible;
     return excedente > 0 ? (((excedente*12)*0.12 + limites.ganancias)/12).toFixed(2): 0;
@@ -241,10 +243,6 @@ function mostrarSueldo(sueldoNeto) { //-------MUESTRA RESULTADO--------
     pasarPagina("resultado");
 }
 
-/*------------------------------------------------------------------FUNCIONES DE HISTORIAL------------------------------------------------------------------*/
-
-
-
 function guardarSueldo(sueldoNuevo) {//-------GUARDA EL SUELDO EN LOCALSTORAGE--------
     if(localStorage.getItem('history')==null){//si el local storage esta vacio
         let arreglo = [];
@@ -258,17 +256,8 @@ function guardarSueldo(sueldoNuevo) {//-------GUARDA EL SUELDO EN LOCALSTORAGE--
     }
 }
 
-function calcularFecha(numero, corta) { //-------CONVIERTE EL NUMERO DATE EN FECHA LEGIBLE--------
-    let fecha = new Date(numero);
-    let año = fecha.getFullYear();
-    let dia = (fecha.getDay()+2)<10?"0"+(fecha.getDay()+2):fecha.getDay()+2;
-    let mes = (fecha.getMonth()+1)<10?"0"+(fecha.getMonth()+1):fecha.getMonth()+1;
-    let hora = fecha.getHours()<10?"0"+(fecha.getHours()):fecha.getHours();
-    let min = fecha.getMinutes()<10?"0"+fecha.getMinutes():fecha.getMinutes();
-    let seg = fecha.getSeconds()<10?"0"+fecha.getSeconds():fecha.getSeconds();
-    return corta? dia + "/" + mes + "/" + año: dia + "/" + mes + "/" + año + " " + hora + ":" + min + ":" + seg;
+/*------------------------------------------------------------------FUNCIONES DE HISTORIAL------------------------------------------------------------------*/
 
-  }
 
 function generarListado() {//-------GENERA Y DIBUJA EL LISTADO DEL HISTORIAL POR COLUMNAS--------
     let historial = JSON.parse(localStorage.getItem('history'));//toma el historial del localstorage
@@ -294,7 +283,7 @@ function generarListado() {//-------GENERA Y DIBUJA EL LISTADO DEL HISTORIAL POR
 
 }
 
-function mostrarItem(index){
+function mostrarItem(index){//para dispositivos moviles que necesitan ampliar la información
     $("#cartelito div div").removeClass("text-center");
     let item = "#itemListado" + index;
     $(".selected").removeClass("selected");
@@ -311,6 +300,25 @@ function mostrarItem(index){
     }
     
 }
+
+
+
+function roundNumbers(numero){ //funcion para aplicar prefijos en caso de numeros altos (evitar ocupar espacio)
+    numero = parseFloat(numero);
+    if(numero>999999999999){
+        let b = (parseFloat(numero) / 100000000000).toFixed(2)
+        return ( new Intl.NumberFormat(["ban", "id"]).format(b) + "B")
+    }
+    if(numero>=1000000 && numero <=999999999999){
+        let m = (parseFloat(numero) / 1000000).toFixed(2)
+        return (new Intl.NumberFormat(["ban", "id"]).format(m) + "M")
+    }
+    if(numero<=999999){
+       return (new Intl.NumberFormat(["ban", "id"]).format(numero.toFixed(2)))
+    }
+
+}
+
 function cleanHistory(sure){//-------LIMPIA EL HISTORIAL, CONFIRMACION--------
     if(sure){
         localStorage.clear();
@@ -330,24 +338,18 @@ function cleanHistory(sure){//-------LIMPIA EL HISTORIAL, CONFIRMACION--------
     }
 }
 
-
-function roundNumbers(numero){
-    numero = parseFloat(numero);
-    if(numero>999999999999){
-        let b = (parseFloat(numero) / 100000000000).toFixed(2)
-        return ( new Intl.NumberFormat(["ban", "id"]).format(b) + "B")
-    }
-    if(numero>=1000000 && numero <=999999999999){
-        let m = (parseFloat(numero) / 1000000).toFixed(2)
-        return (new Intl.NumberFormat(["ban", "id"]).format(m) + "M")
-    }
-    if(numero<=999999){
-       return (new Intl.NumberFormat(["ban", "id"]).format(numero.toFixed(2)))
-    }
-
-}
-
 /*------------------------------------------------------------------FUNCIONES GLOBALES------------------------------------------------------------------*/
+
+function calcularFecha(numero, corta) { //-------CONVIERTE EL NUMERO DATE EN FECHA LEGIBLE--------
+    let fecha = new Date(numero);
+    let año = fecha.getFullYear();
+    let dia = (fecha.getDay()+2)<10?"0"+(fecha.getDay()+2):fecha.getDay()+2;
+    let mes = (fecha.getMonth()+1)<10?"0"+(fecha.getMonth()+1):fecha.getMonth()+1;
+    let hora = fecha.getHours()<10?"0"+(fecha.getHours()):fecha.getHours();
+    let min = fecha.getMinutes()<10?"0"+fecha.getMinutes():fecha.getMinutes();
+    let seg = fecha.getSeconds()<10?"0"+fecha.getSeconds():fecha.getSeconds();
+    return corta? dia + "/" + mes + "/" + año: dia + "/" + mes + "/" + año + " " + hora + ":" + min + ":" + seg;
+  }
 
 function verMes(){  //-------MUESTRA EL MES ACTUAL--------
   return  mesSeleccionado + "/" + añoSeleccionado;
@@ -399,7 +401,7 @@ function toggleTema(){//-------SWITCHEA LA CONFIGURACION DE COLOR--------
 
 }
 
-function toggleSpinner(){
+function toggleSpinner(){//switchea el spinner
     if($("#spinner").is(":visible")){
         $("#spinner").hide();
     }
