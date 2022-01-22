@@ -1,7 +1,8 @@
 let httpError = [
     "Hubo un problema al comunicarse con el servidor",
     "La URL indicada tiene un error o esta mal escrita",
-    "El servidor tiene un problema"
+    "El servidor tiene un problema",
+    "El formulario no es JSON"
 ];
 
 export async function httpGet(url,form){
@@ -27,14 +28,14 @@ export async function httpGet(url,form){
             respuesta.fail(()=>{console.log(httpError[0])})
         }
         else{
-            console.log(httpError[3])
+            console.log(httpError[3]);
         }
 
         }
 
     }
 
-export function httpPost(url,formulario){
-    let respuesta  =  $.post(url,formulario);
+export async function httpPost(url,formulario){ //sin uso
+    let respuesta  =  await $.post(url,formulario);
     return respuesta != null ? respuesta : JSON.parse(httpError[0]);
 }

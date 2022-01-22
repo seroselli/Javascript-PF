@@ -9,68 +9,77 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <title>Calculadora IIGG</title>
-    <link rel="shortcut icon" href="./Assets/favicon.png">
+    <link rel="shortcut icon" href="./Assets/adeafip.ico">
 </head>
 
-<body style="background-color: rgb(39, 39, 39);"> 
+<body> 
   
 <!---------------------BARRA NAVEGACION--------------------->
-<nav class="navbar navbar-light" style="background-image: linear-gradient(to right,rgba(191, 226, 224, 0.603),rgba(3, 68, 65, 0.603),rgba(3, 68, 65, 0.603),rgba(2, 36, 34, 0.603));">
-  <div class="container-fluid">
-    <a class="navbar-brand ms-3" href="./index.html" id="titulo"><img src="./Assets/afip.png" alt="IIGG" style="max-height: 40px;"></a>
-    <div class="d-flex me-3">
-      <button class="btn btn-light me-5" id="btnHistorial" type="button" title="Mostrar Historial de cálculos">Historial </button>
-      <a href="https://www.linkedin.com/in/seroselli" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" id="linkedin" fill="currentColor" width="34" height="34" viewBox="0 0 34 34" class="global-nav__logo">
+<nav class="navbar navbar-light" style="padding: 0px;">
+  <div class="container-fluid" style="background-color: white;">
+    <a class="navbar-brand" href="./index.html" id="titulo"><img src="./Assets/afip.png" title="Impuestos a las Ganancias®" style="max-height: 40px;"></a>
+    <div class="d-flex align-middle">
+      <div class="btnNav" id="s-btnHistorial">
+        <button id="btnHistorial" type="button" title="Mostrar Historial de cálculos"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0 6.627-5.373 12-12 12s-12-5.373-12-12h2c0 5.514 4.486 10 10 10s10-4.486 10-10-4.486-10-10-10c-2.777 0-5.287 1.141-7.099 2.977l2.061 2.061-6.962 1.354 1.305-7.013 2.179 2.18c2.172-2.196 5.182-3.559 8.516-3.559 6.627 0 12 5.373 12 12zm-13-6v8h7v-2h-5v-6h-2z"/></svg></button>
+      </div>
+      <div class="btnNav" title="Cambiar color de página" id="s-bg-color">
+        <button class="moon" id="bg-color"></button>
+      </div>
+      <div class="btnNav" id="s-btnMenu" >
+        <button class="btnMenu" id="btnMenu" title="Contacto"></button>
+      </div>
+    </div>
+  </div>
+  <div class="barraAzul" >
+    <div class="headerr">
+      <a href="https://wa.me/5493426310597" title="Contactate" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39">
+          <path fill="#00E676" d="M10.7 32.8l.6.3c2.5 1.5 5.3 2.2 8.1 2.2 8.8 0 16-7.2 16-16 0-4.2-1.7-8.3-4.7-11.3s-7-4.7-11.3-4.7c-8.8 0-16 7.2-15.9 16.1 0 3 .9 5.9 2.4 8.4l.4.6-1.6 5.9 6-1.5z"></path>
+          <path fill="#FFF" d="M32.4 6.4C29 2.9 24.3 1 19.5 1 9.3 1 1.1 9.3 1.2 19.4c0 3.2.9 6.3 2.4 9.1L1 38l9.7-2.5c2.7 1.5 5.7 2.2 8.7 2.2 10.1 0 18.3-8.3 18.3-18.4 0-4.9-1.9-9.5-5.3-12.9zM19.5 34.6c-2.7 0-5.4-.7-7.7-2.1l-.6-.3-5.8 1.5L6.9 28l-.4-.6c-4.4-7.1-2.3-16.5 4.9-20.9s16.5-2.3 20.9 4.9 2.3 16.5-4.9 20.9c-2.3 1.5-5.1 2.3-7.9 2.3zm8.8-11.1l-1.1-.5s-1.6-.7-2.6-1.2c-.1 0-.2-.1-.3-.1-.3 0-.5.1-.7.2 0 0-.1.1-1.5 1.7-.1.2-.3.3-.5.3h-.1c-.1 0-.3-.1-.4-.2l-.5-.2c-1.1-.5-2.1-1.1-2.9-1.9-.2-.2-.5-.4-.7-.6-.7-.7-1.4-1.5-1.9-2.4l-.1-.2c-.1-.1-.1-.2-.2-.4 0-.2 0-.4.1-.5 0 0 .4-.5.7-.8.2-.2.3-.5.5-.7.2-.3.3-.7.2-1-.1-.5-1.3-3.2-1.6-3.8-.2-.3-.4-.4-.7-.5h-1.1c-.2 0-.4.1-.6.1l-.1.1c-.2.1-.4.3-.6.4-.2.2-.3.4-.5.6-.7.9-1.1 2-1.1 3.1 0 .8.2 1.6.5 2.3l.1.3c.9 1.9 2.1 3.6 3.7 5.1l.4.4c.3.3.6.5.8.8 2.1 1.8 4.5 3.1 7.2 3.8.3.1.7.1 1 .2h1c.5 0 1.1-.2 1.5-.4.3-.2.5-.2.7-.4l.2-.2c.2-.2.4-.3.6-.5s.4-.4.5-.6c.2-.4.3-.9.4-1.4v-.7s-.1-.1-.3-.2z"></path>
+        </svg>
+      </a> 
+      <a href="https://www.linkedin.com/in/seroselli" id="linkedin" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="34" height="34" viewBox="0 0 34 34" class="global-nav__logo">
           <g><path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z" fill="currentColor"></path></g>
         </svg>
       </a>
-
     </div>
   </div>
 </nav>
 
+
 <!---------------------SECTOR PAGINA--------------------->
-  <section style="position:relative; top: 0px; left: 0px; display: block; width: 100%;">
-    <div class="d-flex logo">
-        <a href="https://wa.me/5493426310597" target="_blank" style="text-decoration: none; cursor: pointer; color: white;font-weight: bolder; text-shadow: rgb(0, 0, 0) 1px 1px 3px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39">
-            <path fill="#00E676" d="M10.7 32.8l.6.3c2.5 1.5 5.3 2.2 8.1 2.2 8.8 0 16-7.2 16-16 0-4.2-1.7-8.3-4.7-11.3s-7-4.7-11.3-4.7c-8.8 0-16 7.2-15.9 16.1 0 3 .9 5.9 2.4 8.4l.4.6-1.6 5.9 6-1.5z"></path>
-            <path fill="#FFF" d="M32.4 6.4C29 2.9 24.3 1 19.5 1 9.3 1 1.1 9.3 1.2 19.4c0 3.2.9 6.3 2.4 9.1L1 38l9.7-2.5c2.7 1.5 5.7 2.2 8.7 2.2 10.1 0 18.3-8.3 18.3-18.4 0-4.9-1.9-9.5-5.3-12.9zM19.5 34.6c-2.7 0-5.4-.7-7.7-2.1l-.6-.3-5.8 1.5L6.9 28l-.4-.6c-4.4-7.1-2.3-16.5 4.9-20.9s16.5-2.3 20.9 4.9 2.3 16.5-4.9 20.9c-2.3 1.5-5.1 2.3-7.9 2.3zm8.8-11.1l-1.1-.5s-1.6-.7-2.6-1.2c-.1 0-.2-.1-.3-.1-.3 0-.5.1-.7.2 0 0-.1.1-1.5 1.7-.1.2-.3.3-.5.3h-.1c-.1 0-.3-.1-.4-.2l-.5-.2c-1.1-.5-2.1-1.1-2.9-1.9-.2-.2-.5-.4-.7-.6-.7-.7-1.4-1.5-1.9-2.4l-.1-.2c-.1-.1-.1-.2-.2-.4 0-.2 0-.4.1-.5 0 0 .4-.5.7-.8.2-.2.3-.5.5-.7.2-.3.3-.7.2-1-.1-.5-1.3-3.2-1.6-3.8-.2-.3-.4-.4-.7-.5h-1.1c-.2 0-.4.1-.6.1l-.1.1c-.2.1-.4.3-.6.4-.2.2-.3.4-.5.6-.7.9-1.1 2-1.1 3.1 0 .8.2 1.6.5 2.3l.1.3c.9 1.9 2.1 3.6 3.7 5.1l.4.4c.3.3.6.5.8.8 2.1 1.8 4.5 3.1 7.2 3.8.3.1.7.1 1 .2h1c.5 0 1.1-.2 1.5-.4.3-.2.5-.2.7-.4l.2-.2c.2-.2.4-.3.6-.5s.4-.4.5-.6c.2-.4.3-.9.4-1.4v-.7s-.1-.1-.3-.2z"></path>
-          </svg>
-          Contactános
-        </a> 
-    </div>
+
+<div class="d-flex justify-content-center align-middle " style="position: fixed; top: 45%;left: 45%;z-index: 5;">
+  <div class="spinner-border" role="status" id="spinner" style="display: none;">
+  </div>
+</div>
+  <div class="output"></div>
+  
+  <section style="position:relative; display: block; width: 100%;">
+    <p class="letras-color" style=" text-align: center;margin-top: 50px;">Esta calculadora no respeta valores legales y es solo una simulación ficticia, no debe usarse para obtener datos reales</p>
     <!--cartelAlerta-->
-    <div class="container-fluid" style="position: absolute; background-color: rgba(32, 32, 32, 0.575);height: 100vh; z-index: 110000; display: none;" id="cartelito">
+    <div class="container-fluid" style="position: fixed; background-color: rgba(32, 32, 32, 0.575); height: 100vh; width: 100vw; z-index: 110000; display: none; top: 0px; left: 0px;" id="cartelito">
     <div class="row align-items-center justify-content-center">
-      <div class="col text-center">
+      <div class="col-auto text-center">
         <div class="cartel" id="textoCartelito">
-          Debe completar correctamente los campos
         </div>
       </div>
     </div>
     </div>
     <!--PAGINA CALCULADORA-->
-    <div class="page" id="calculadora" style="display: block;">
-      <div class="container-fluid" style="max-width: 80%;">
-        <div class="row g-1 align-items-end justify-content-end me-5 mt-1">
-          <div class="col-auto me-5">
 
-          </div>
-        </div>
-      </div>
-      <div class="output"></div>
+    <div class="page" id="calculadora" style="display: block;">
       <div class="container-fluid mt-3 pb-3" id="cuadro">
-        <p class="fs-2 ms-3 mb-3" style="color: white;">Calculadora de Impuestos a las Ganancias</p>
+        <p class="fs-2 ms-3 mb-3 letras-color">Calculadora de Impuestos a las Ganancias</p>
         <div class="row mt-1 align-items-center justify-content-center align-middle ">           
-          <div class="col-md-6" >
-            <label for="sueldoBruto" style="color: white;">Ingrese su sueldo bruto</label>
-            <input style="height:42px" type="text" style="display: inline;" class="form-control" name="sueldoBruto" aria-label="Sueldo Bruto" id="sueldoBruto"  title="Sueldo Bruto"><!--VALIDACION DE FORMULARIO (CADA VEZ QUE SE INGRESA UN DATO)-->
+          <div class="col-md-6 letras-color" >
+            <label for="sueldoBruto">Ingrese su sueldo bruto</label>
+            <input style="height:42px" type="text" style="display: inline;" class="form-control mt-1" name="sueldoBruto" aria-label="Sueldo Bruto" id="sueldoBruto"  title="Sueldo Bruto"><!--VALIDACION DE FORMULARIO (CADA VEZ QUE SE INGRESA UN DATO)-->
           </div>
-          <div class="col-2 align-items-center justify-content-center align-middle mt-4">
+          <div class="col-2 align-items-center justify-content-center align-middle mt-4" >
             <div class="d-flex flex-row align-items-center justify-content-center align-middle">
-              <button class="btnRelation singleOn pe-3" id="single">
+              <button class="btnRelation singleOn pe-3" id="single" title="Soltero">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="28"  height="28" viewBox="0 0 240 512" preserveAspectRatio="xMidYMid meet">
                   <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"  stroke="none">
                       <path d="M1103 5105 c-173 -47 -283 -187 -283 -361 0 -204 168 -374 370 -374 69 0 167 34 224 77 184 141 197 405 29 568 -46 45 -94 70 -170 90 -69 18 -102 18 -170 0z"/>
@@ -78,7 +87,7 @@
                   </g>
                 </svg>
               </button>
-              <button class="btnRelation coupleOff ps-3" id="couple">
+              <button class="btnRelation coupleOff ps-3" id="couple" title="En pareja">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg" fill="currentColor"  width="28" height="28" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
                   <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"  stroke="none">
                       <path d="M1510 5104 c-277 -75 -367 -434 -158 -630 27 -25 74 -57 106 -72 49 -23 70 -27 152 -27 82 0 103 4 152 27 31 14 77 45 102 68 216 199 123 561 -162 635 -69 18 -121 18 -192 -1z"/>
@@ -92,7 +101,7 @@
           <div class="d-flex-container align-items-start justify-content-start mt-5">
             <div class="row align-items-center justify-content-center">
               <div class="d-flex col-4 align-items-center justify-content-center align-middle mt-3" name="fecha" id="fecha" style="z-index: 4;">
-                <button class="btn" type="button" id="cobro" >Fecha de cobro</button>
+                <button class="btn" type="button" id="cobro" title="Selecciones la fecha de cobro de este sueldo">Fecha de cobro</button>
                 <svg width="260" height="260" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" style="position: absolute;" id="svgFecha">
                     <!--modulo12--><path class="modulo m12" id="m12" d="M17.6129 187C17.1346 187.276 16.5225 187.112 16.2502 186.632C5.77027 168.14 0.17871 147.281 0.0042135 126.026C-0.000320577 125.474 0.447718 125.026 1 125.026L71.5 125.011C72.0523 125.011 72.4991 125.459 72.5097 126.011C72.674 134.544 74.9163 142.908 79.0419 150.379C79.3089 150.863 79.1459 151.474 78.6676 151.75L17.6129 187Z"/>
                                   <path class="letra m12" id="dic" d="M18.35 151V138.562H23.03C23.93 138.562 24.74 138.724 25.46 139.048C26.18 139.372 26.762 139.804 27.206 140.344C28.118 141.472 28.574 142.804 28.574 144.34C28.574 146.284 27.986 147.88 26.81 149.128C25.634 150.376 24.068 151 22.112 151H18.35ZM22.832 139.93H19.898V149.632H22.112C23.6 149.632 24.752 149.164 25.568 148.228C26.384 147.292 26.792 145.996 26.792 144.34C26.792 143.104 26.444 142.06 25.748 141.208C25.064 140.356 24.092 139.93 22.832 139.93ZM31.0105 151V138.562H32.5585V151H31.0105ZM36.7679 145.222C36.7679 146.602 37.1279 147.724 37.8479 148.588C38.5799 149.452 39.5639 149.884 40.7999 149.884C42.0479 149.884 43.2659 149.578 44.4539 148.966L44.6519 150.334C43.3079 150.922 41.9879 151.216 40.6919 151.216C39.3959 151.216 38.3159 150.928 37.4519 150.352C36.5999 149.764 35.9759 149.026 35.5799 148.138C35.1839 147.25 34.9859 146.278 34.9859 145.222C34.9859 143.206 35.5739 141.556 36.7499 140.272C37.9259 138.988 39.4919 138.346 41.4479 138.346C42.3479 138.346 43.3199 138.508 44.3639 138.832L43.9319 140.092C43.1039 139.84 42.2759 139.714 41.4479 139.714C39.9839 139.714 38.8379 140.206 38.0099 141.19C37.1819 142.174 36.7679 143.518 36.7679 145.222Z"/>
@@ -140,11 +149,11 @@
 
         
         <div class="container-xl mt-5 sector-calculadora"><!--GASTOS DEDUCIBLES--> 
-          <p class="fs-4 ms-3 mb-3" style="color: white;">Gastos deducibles</p>
+          <p class="fs-4 ms-3 mb-3 letras-color">Gastos deducibles</p>
           <div class="row g-3 align-items-center justify-content-center mt-1" >
             <div class="col-md-6 text-center">
-                <div class="form-sector" style="color: white;">
-                  <label for="hijos">¿Cuantos hijos tiene?</label><label style="padding-left: 10px;" id="cantHijos"> 3</label><br>
+                <div class="letras-color">
+                  <label for="hijos">¿Cuantos hijos tiene?</label><label style="padding-left: 10px;" id="cantHijos">3</label><br>
                   <input style="width: auto;" type="range" name="hijos" id="hijos" min="0" max="10" value="0" step="1"  title="Cantidad de hijos a su cargo"><!--ACTUALIZA EL H3-->
                 </div>
             </div>
@@ -170,9 +179,9 @@
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-end w-100 mt-3">
+        <div class="d-flex justify-content-end w-100 mt-3 pe-5 pt-3">
             <div class="w-25">
-              <button class="btn btn-iigg" id="btnCalcular" type="button" title="Realiza la cuenta">CALCULAR </button><!--VALIDACION DE FORMULARIO (DE FORMA MANUAL)-->
+              <button class="btn btnCalcular" id="btnCalcular" type="button" title="Realiza la cuenta">CALCULAR </button><!--VALIDACION DE FORMULARIO (DE FORMA MANUAL)-->
             </div>
         </div>
       </div>
@@ -180,10 +189,7 @@
     <!-------PAGINA RESULTADO--------->
     <div  class="mt-3 page" id="resultado" style="display: none;">
       <div class="container cuadro">
-        <div class="row g-1 align-items-center justify-content-center mt-3 text-center" style="color: white;">
-        <p class="fs-1" style="color: tomato;" id="sueldoNeto"></p>
-        <p class="fs-3" id="retenciones"></p>
-        <p class="fs-3" id="aportes"></p>
+        <div class="row g-1 align-items-center justify-content-center mt-3 text-center letras-color" id="mostrandoResultado">
         </div>
         <div class="row g-1 align-items-center justify-content-center mt-5">
           <div class="col-6 text-center">
@@ -197,40 +203,40 @@
     </div>
   <!-------PAGINA HISTORIAL--------->
   <div class="page" id="historial" style="display: none;">
-    <div class="container mt-3">
+    <div class="container mt-3 cuadro">
       <div class="row g-1 justify-content-start">
         <div class="col-auto">
           <div class="d-grid gap-2">
-            <button class="btn btn-light" type="button" id="btnPageCalculadora" >Volver</button><!--VOLVER A CALCULADORA-->
+            <button class="btn btnCalcular mt-3" type="button" id="btnPageCalculadora" >Volver</button><!--VOLVER A CALCULADORA-->
           </div>
         </div>
+        <div class="col-auto text-center mt-4 ms-2">
+          <h3>Historial de cálculos</h3>
+        </div>
       </div>
-      <div class="row align-items-center justify-content-center g-1 mt-3" style="color: white;">
-        <div class="col text-center text-responsive-1">Registro</div>
-        <div class="col text-center text-responsive-1">Mes</div>
-        <div class="col text-center text-responsive-1">Sueldo Bruto</div>
-        <div class="col text-center text-responsive-1">Retenciones</div>
-        <div class="col text-center text-responsive-1">Aportes</div>
-        <div class="col text-center text-responsive-1">Sueldo Neto</div>
+      <div class="row align-items-center justify-content-center g-1 mt-3 letras-color">
+        <div class="col-2 text-center text-responsive-1">Registro</div>
+        <div class="col-2 text-center text-responsive-1">Mes</div>
+        <div class="col-2 text-center text-responsive-1">Sueldo Bruto</div>
+        <div class="col-2 text-center text-responsive-1">Retenciones</div>
+        <div class="col-2 text-center text-responsive-1">Aportes</div>
+        <div class="col-2 text-center text-responsive-1">Sueldo Neto</div>
       </div>
-      <div id="mostrarListado"></div>
+      <div id="mostrarListado" class="letras-color"></div>
       <div class="row g-1 justify-content-center mt-2 mb-5">
         <div class="col-6">
           <div class="d-grid gap-2">
-            <button class="btn btn-outline-light" type="button"  id="limpiarHistorial" >Borrar Historial</button><!--BORRA EL STORAGE-->
+            <button class="btn btnBorrarHistorial letras-color " type="button"  id="limpiarHistorial" >Borrar Historial</button><!--BORRA EL STORAGE-->
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   </section>
 
 
-<p style="color: white; text-align: center;">Esta calculadora no respeta valores legales y es solo una simulación ficticia, no debe usarse para obtener datos reales</p>
-<footer class="text-center"><!--SIMPLE FOOTER-->
-  Calculadora de impuestos a las ganancias desarrollada por Sebastián Roselli como Proyecto Final del curso JavaScript de CoderHouse
-</footer>
+
 <script type="module" src="./ajax.js"></script>
 <script type="module" src="./Clases-Objects/fecha.js"></script>
 <script type="module" src="./Clases-Objects/sueldo.js"></script>

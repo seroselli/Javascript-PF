@@ -1,7 +1,7 @@
 export default class validadors {
     constructor (){
         this.numeros = "0123456789.";
-        this.letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ,:;";
+        this.letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ,:;+-*/!#$%&/()=?¡*¨][_{}|°¬<>¿'´";
         this.error = [true,false,false,false];//required,no,no,no
     }
     reset(){
@@ -26,14 +26,23 @@ export default class validadors {
     numero(id){//VALIDA QUE EL STRING INGRESADO SEAN NUMEROS
         if(id != null){
         let palabra = document.getElementById(id).value
+        let contador=0;
         for(let i=0; i<palabra.length; i++){
-            if (this.letras.indexOf(palabra.charAt(i),0)!=-1){
-                this.marcarError(id);
-                return true;
+            if (this.numeros.indexOf(palabra.charAt(i),0)!=-1){
+                contador++;
                 }
-            }
+        }
+        console.log("Contador: " + contador + " Largo palabra: "+ palabra.length);
+        console.log("Palabra: "+palabra)
+        if(contador===palabra.length){
             this.desmarcarError(id);
             return false;
+        }
+        else{
+            this.marcarError(id);
+            return true;
+        }
+
         }
     }
     marcarError(id){//MARCA UN ERROR EN CADA UNA DE LOS INPUTS
