@@ -24,6 +24,10 @@ function initialize(){
             break;//NO FUNCIONA
         }
     }
+    if(localStorage.getItem("tyc")){
+        $("#avisoTerminos").hide();
+    }
+    
 
     limpiarTodo(); //LIMPIA FORMULARIO Y REINICIA VALIDACIONES
     checkTema();//CHEQUEA EL TEMA DARK O LIGHT
@@ -49,7 +53,7 @@ addEventListener("keyup",data => { //recibir evento de tecla enter y realizar di
     }
 })
 
-$(document).ready(()=>{
+$(function(){
 
     $("#s-bg-color").click(()=>{//BOTON CAMBIAR COLORES
         toggleTema();
@@ -101,7 +105,7 @@ $(document).ready(()=>{
             $(".circle").css("display", "none");//al hacer click fuera del selector de fecha
             ocultarFechas();
     })
-    $("#mostrarListado").click(data=>{
+    $("#listaCard").click(data=>{
         let ide = data.target.parentElement.id;
         if(ide.slice(0,4)=="item"){
            let index = parseInt(ide.slice(11,ide.length));//encuentro el "id" del item
@@ -109,11 +113,21 @@ $(document).ready(()=>{
         }
 })
 
+$("#mostrarListado").click(data=>{
+    let ide = data.target.parentElement.id;
+    if(ide.slice(0,4)=="item"){
+       let index = parseInt(ide.slice(11,ide.length));//encuentro el "id" del item
+        mostrarItem(index);
+    }
+})
     $("#s-btnMenu").click(()=>{//switchar menu de contacto
         toggleHeader();
     })
 
-
+    $("#ocultarTexto").click(()=>{//switchar menu de contacto
+        $("#avisoTerminos").hide();
+        localStorage.setItem("tyc",JSON.stringify(true))
+    })
 })
 
 
